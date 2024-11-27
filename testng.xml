@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="2NHaber Test Suite">
+    <test name="All Tests">
+        <classes>
+            <class name="com.nhaber.tests.NavbarTest"/>
+            <class name="com.nhaber.tests.SearchTest"/>
+            <class name="com.nhaber.tests.TechHRFormTest"/>
+        </classes>
+    </test>
+</suite> 

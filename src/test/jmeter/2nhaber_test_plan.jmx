@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="2NHABER Load Test">
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="BASE_URL" elementType="Argument">
+            <stringProp name="Argument.name">BASE_URL</stringProp>
+            <stringProp name="Argument.value">https://2nhaber.com</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+    </TestPlan>
+    
+    <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Web Users">
+      <elementProp name="ThreadGroup.main_controller" elementType="LoopController">
+        <stringProp name="LoopController.loops">2</stringProp>
+      </elementProp>
+      <stringProp name="ThreadGroup.num_threads">100</stringProp>
+      <stringProp name="ThreadGroup.ramp_time">30</stringProp>
+      <stringProp name="ThreadGroup.duration">300</stringProp>
+    </ThreadGroup>
+
+    <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Home Page">
+      <stringProp name="HTTPSampler.path">/</stringProp>
+      <stringProp name="HTTPSampler.method">GET</stringProp>
+    </HTTPSamplerProxy>
+
+    <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Search">
+      <stringProp name="HTTPSampler.path">/search</stringProp>
+      <stringProp name="HTTPSampler.method">GET</stringProp>
+    </HTTPSamplerProxy>
+
+    <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HR Form">
+      <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="name" elementType="HTTPArgument">
+            <stringProp name="Argument.name">name</stringProp>
+            <stringProp name="Argument.value">Test Kullanıcı</stringProp>
+          </elementProp>
+          <elementProp name="email" elementType="HTTPArgument">
+            <stringProp name="Argument.name">email</stringProp>
+            <stringProp name="Argument.value">test@gmail.com</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="HTTPSampler.path">/hr</stringProp>
+      <stringProp name="HTTPSampler.method">POST</stringProp>
+    </HTTPSamplerProxy>
+
+    <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree"/>
+    <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report"/>
+    <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results"/>
+  </hashTree>
+</jmeterTestPlan> 

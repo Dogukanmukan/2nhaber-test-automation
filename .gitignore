@@ -1,0 +1,20 @@
+# Maven build klasörü
+target/
+test-output/
+
+# IDE dosyaları
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+
+# Logs
+*.log
+
+# OS dosyaları
+.DS_Store
+Thumbs.db
+
+# Test resources
+src/test/java/com/nhaber/resources/test_cv.pdf
